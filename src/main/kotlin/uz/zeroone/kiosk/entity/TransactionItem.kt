@@ -7,10 +7,6 @@ import java.math.BigDecimal
 @Table(name = "transaction_item")
 class TransactionItem(
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    var id: Long? = null,
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "product_id")
     var product: Product,
@@ -26,4 +22,4 @@ class TransactionItem(
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "transaction_id")
     var transaction: Transaction
-)
+) : BaseEntity()

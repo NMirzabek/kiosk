@@ -8,10 +8,6 @@ import java.time.LocalDateTime
 @Table(name = "user_payment_transaction")
 class UserPaymentTransaction(
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    var id: Long? = null,
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     var user: User,
@@ -20,4 +16,4 @@ class UserPaymentTransaction(
     var amount: BigDecimal,
 
     var date: LocalDateTime = LocalDateTime.now()
-)
+) : BaseEntity()
